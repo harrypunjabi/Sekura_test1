@@ -310,105 +310,102 @@ const SekuraWebsitePreview = () => {
       </section>
 
       {/* Pricing Section */}
-      <section className="grid grid-cols-3 gap-8 py-12 px-12">
-        {[
-          {
-            plan: 'Free',
-            features: [
-              '1 Protected Folder',
-              '10 Documents',
-              '100 Photos and Videos',
-              'Strong Encryption',
-              'Community Support',
-              'Always Free'
-            ],
-            highlight: false,
-            cta: 'Download Now',
-            ctaIcon: '↓'
-          },
-          {
-            plan: 'Pro',
-            features: [
-              'Unlimited Protected Folders',
-              'Unlimited Documents',
-              'Unlimited Photos and Videos',
-              'Military-grade Encryption',
-              'Premium 24/7 Support',
-              'Real-time Threat Monitoring'
-            ],
-            highlight: true,
-            price: {
-              monthly: '$2.99/mo',
-              yearly: '$30/year',
-              savings: 'Save 16%'
-            },
-            cta: 'Get Pro',
-            popular: true
-          },
-          {
-            plan: 'Enterprise',
-            subtext: 'Coming Soon',
-            features: [
-              'Everything in Pro, plus:',
-              'Enterprise Data Scanning',
-              'AI-Powered Data Classification',
-              '• PII, PCI, PHI Detection',
-              '• Sensitive Data Auto-tagging',
-              'Custom Security Policies',
-              'Role-based Access Control',
-              'Enterprise SSO Integration',
-              'Audit Logs & Compliance Reports',
-              'Dedicated Success Manager',
-              'Custom API Integration',
-              'SLA Guarantee'
-            ],
-            highlight: false,
-            specialNote: 'Local Government & Non-profits get 50% off',
-            cta: 'Join Waitlist',
-            ctaIcon: '🔔'
-          }
-        ].map(({ plan, subtext, features, highlight, specialNote, cta, ctaIcon, price, popular }) => (
-          <div key={plan} className={`rounded-lg shadow-xl p-8 text-center relative ${highlight ? 'bg-orange-500 text-white transform scale-105' : 'bg-gray-800 text-white'}`}>
-            {popular && (
-              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span className="bg-blue-600 text-white text-sm px-4 py-1 rounded-full">Most Popular</span>
+      <section className="py-16 px-6 md:px-12 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Choose the plan that's right for you
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {[
+              {
+                plan: 'Free',
+                price: '$0',
+                description: 'Basic protection for personal use',
+                features: [
+                  '1 Protected Folder',
+                  '10 Documents',
+                  '100 Photos and Videos',
+                  'Strong Encryption',
+                  'Community Support',
+                  'Always Free'
+                ],
+                cta: 'Get Started',
+                popular: false
+              },
+              {
+                plan: 'Pro',
+                price: '$9.99',
+                period: '/month',
+                description: 'Advanced security for professionals',
+                features: [
+                  'Unlimited Protected Folders',
+                  'Unlimited Documents',
+                  'Unlimited Photos and Videos',
+                  'Military-grade Encryption',
+                  'Priority Support',
+                  'Real-time Monitoring',
+                  'Advanced Threat Detection',
+                  'Secure File Sharing'
+                ],
+                cta: 'Start Free Trial',
+                popular: true
+              },
+              {
+                plan: 'Enterprise',
+                price: 'Custom',
+                description: 'Enhanced security for organizations',
+                features: [
+                  'Everything in Pro',
+                  'Custom Integration',
+                  'Dedicated Support',
+                  'Team Management',
+                  'Audit Logs',
+                  'API Access',
+                  'SLA Guarantee',
+                  'Custom Deployment'
+                ],
+                cta: 'Contact Sales',
+                popular: false
+              }
+            ].map((tier) => (
+              <div key={tier.plan} className={`relative rounded-2xl bg-white shadow-lg p-8 ${tier.popular ? 'ring-2 ring-blue-600' : ''}`}>
+                {tier.popular && (
+                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
+                    Most Popular
+                  </span>
+                )}
+                <div className="text-center">
+                  <h3 className="text-2xl font-bold mb-2">{tier.plan}</h3>
+                  <div className="flex justify-center items-baseline mb-2">
+                    <span className="text-4xl font-bold">{tier.price}</span>
+                    {tier.period && <span className="text-gray-600 ml-1">{tier.period}</span>}
+                  </div>
+                  <p className="text-gray-600 mb-6">{tier.description}</p>
+                </div>
+                <ul className="space-y-4 mb-8">
+                  {tier.features.map((feature) => (
+                    <li key={feature} className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span className="text-gray-600">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+                <button 
+                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
+                    tier.popular 
+                      ? 'bg-blue-600 text-white hover:bg-blue-700' 
+                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+                  }`}
+                >
+                  {tier.cta}
+                </button>
               </div>
-            )}
-            <h3 className="font-bold text-2xl mb-2">{plan}</h3>
-            {subtext && <p className="text-sm mb-4 bg-blue-600 text-white px-3 py-1 rounded-full inline-block">{subtext}</p>}
-            {price && typeof price === 'string' ? (
-              <p className="text-lg mb-4 opacity-90">{price}</p>
-            ) : price && (
-              <div className="mb-4 space-y-1">
-                <p className="text-lg font-bold">{price.monthly}</p>
-                <p className="text-sm">or {price.yearly}</p>
-                <p className="text-sm bg-green-500 text-white px-2 py-0.5 rounded-full inline-block">{price.savings}</p>
-              </div>
-            )}
-            <ul className="mb-8 space-y-3">
-              {features.map((feature, idx) => (
-                <li key={idx} className="flex items-center justify-center gap-2">
-                  <span className="text-green-400">{feature.startsWith('•') ? '└' : '✔'}</span>
-                  {feature.startsWith('•') ? feature.substring(2) : feature}
-                </li>
-              ))}
-            </ul>
-            {specialNote && (
-              <div className="mb-6 text-sm">
-                <p className="text-orange-300 border border-orange-300 rounded-lg p-2">
-                  {specialNote}
-                </p>
-              </div>
-            )}
-            <button className={`rounded-full py-3 px-6 font-semibold w-full flex items-center justify-center gap-2 ${
-              highlight ? 'bg-white text-orange-500 hover:bg-orange-50' : 
-              plan === 'Free' ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white text-gray-800 hover:bg-gray-100'
-            }`}>
-              {ctaIcon && <span className="text-xl">{ctaIcon}</span>}
-              {cta}
-            </button>
+            ))}
           </div>
-        ))}
+        </div>
       </section>
 
       {/* Footer */}
