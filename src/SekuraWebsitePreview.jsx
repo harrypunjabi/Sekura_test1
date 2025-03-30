@@ -311,99 +311,200 @@ const SekuraWebsitePreview = () => {
 
       {/* Pricing Section */}
       <section className="py-16 px-6 md:px-12 bg-gray-50">
-        <div className="max-w-6xl mx-auto">
+        <div className="max-w-7xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-4">Simple, Transparent Pricing</h2>
-          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Choose the plan that's right for you
-          </p>
+          <p className="text-gray-600 text-center mb-12">Choose the plan that's right for you</p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {[
-              {
-                plan: 'Free',
-                price: '$0',
-                description: 'Basic protection for personal use',
-                features: [
-                  '1 Protected Folder',
-                  '10 Documents',
-                  '100 Photos and Videos',
-                  'Strong Encryption',
-                  'Community Support',
-                  'Always Free'
-                ],
-                cta: 'Get Started',
-                popular: false
-              },
-              {
-                plan: 'Pro',
-                price: '$9.99',
-                period: '/month',
-                description: 'Advanced security for professionals',
-                features: [
-                  'Unlimited Protected Folders',
-                  'Unlimited Documents',
-                  'Unlimited Photos and Videos',
-                  'Military-grade Encryption',
-                  'Priority Support',
-                  'Real-time Monitoring',
-                  'Advanced Threat Detection',
-                  'Secure File Sharing'
-                ],
-                cta: 'Start Free Trial',
-                popular: true
-              },
-              {
-                plan: 'Enterprise',
-                price: 'Custom',
-                description: 'Enhanced security for organizations',
-                features: [
-                  'Everything in Pro',
-                  'Custom Integration',
-                  'Dedicated Support',
-                  'Team Management',
-                  'Audit Logs',
-                  'API Access',
-                  'SLA Guarantee',
-                  'Custom Deployment'
-                ],
-                cta: 'Contact Sales',
-                popular: false
-              }
-            ].map((tier) => (
-              <div key={tier.plan} className={`relative rounded-2xl bg-white shadow-lg p-8 ${tier.popular ? 'ring-2 ring-blue-600' : ''}`}>
-                {tier.popular && (
-                  <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm font-medium">
-                    Most Popular
-                  </span>
-                )}
-                <div className="text-center">
-                  <h3 className="text-2xl font-bold mb-2">{tier.plan}</h3>
-                  <div className="flex justify-center items-baseline mb-2">
-                    <span className="text-4xl font-bold">{tier.price}</span>
-                    {tier.period && <span className="text-gray-600 ml-1">{tier.period}</span>}
-                  </div>
-                  <p className="text-gray-600 mb-6">{tier.description}</p>
-                </div>
-                <ul className="space-y-4 mb-8">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-3">
-                      <svg className="w-5 h-5 text-green-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7" />
-                      </svg>
-                      <span className="text-gray-600">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-                <button 
-                  className={`w-full py-3 px-6 rounded-lg font-semibold transition-colors ${
-                    tier.popular 
-                      ? 'bg-blue-600 text-white hover:bg-blue-700' 
-                      : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
-                  }`}
-                >
-                  {tier.cta}
-                </button>
+            {/* Free Plan */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-semibold mb-4">Free</h3>
+              <div className="mb-4">
+                <span className="text-4xl font-bold">$0</span>
               </div>
-            ))}
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  1 Protected Folder
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  10 Documents
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  100 Photos and Videos
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Strong Encryption
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Community Support
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Always Free
+                </li>
+              </ul>
+              <button className="w-full bg-gray-100 hover:bg-gray-200 text-gray-800 py-3 px-4 rounded-lg transition-colors flex items-center justify-center gap-2">
+                <span>↓</span> Download Now
+              </button>
+            </div>
+
+            {/* Pro Plan */}
+            <div className="bg-white rounded-lg shadow-lg p-8 relative border-2 border-blue-500">
+              <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1 rounded-full text-sm">
+                Most Popular
+              </div>
+              <h3 className="text-2xl font-semibold mb-4">Pro</h3>
+              <div className="mb-2">
+                <span className="text-4xl font-bold">$2.99</span>
+                <span className="text-gray-600">/mo</span>
+              </div>
+              <div className="mb-6">
+                <span className="text-gray-600">or $30/year</span>
+                <span className="ml-2 bg-green-500 text-white text-sm px-2 py-1 rounded">Save 16%</span>
+              </div>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Unlimited Protected Folders
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Unlimited Documents
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Unlimited Photos and Videos
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Military-grade Encryption
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Premium 24/7 Support
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Real-time Threat Monitoring
+                </li>
+              </ul>
+              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors">
+                Get Pro
+              </button>
+            </div>
+
+            {/* Enterprise Plan */}
+            <div className="bg-white rounded-lg shadow-lg p-8">
+              <h3 className="text-2xl font-semibold mb-4">Enterprise</h3>
+              <ul className="space-y-4 mb-8">
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Everything in Pro, plus:
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Enterprise Data Scanning
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  AI-Powered Data Classification
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg className="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  PII, PCI, PHI Detection
+                </li>
+                <li className="flex items-center text-gray-600">
+                  <svg className="w-5 h-5 text-gray-400 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Sensitive Data Auto-tagging
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Custom Security Policies
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Role-based Access Control
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Enterprise SSO Integration
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Audit Logs & Compliance Reports
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Dedicated Success Manager
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  Custom API Integration
+                </li>
+                <li className="flex items-center">
+                  <svg className="w-5 h-5 text-green-500 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
+                  </svg>
+                  SLA Guarantee
+                </li>
+              </ul>
+              <div className="text-center text-gray-500 mb-4 text-sm">
+                Local Government & Non-profits get 50% off
+              </div>
+              <button className="w-full bg-blue-600 text-white py-3 px-4 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center gap-2">
+                <span>⚡</span> Join Waitlist
+              </button>
+            </div>
           </div>
         </div>
       </section>
