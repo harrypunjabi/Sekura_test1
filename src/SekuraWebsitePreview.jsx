@@ -1,6 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const SekuraWebsitePreview = () => {
+  const [authenticated, setAuthenticated] = useState(false);
+  const [password, setPassword] = useState('');
+
+  const correctPassword = 'sekura123'; // change this to your desired password
+
+  const handleLogin = () => {
+    if (password === correctPassword) {
+      setAuthenticated(true);
+    } else {
+      alert('Incorrect password');
+    }
+  };
+
+  if (!authenticated) {
+    return (
+      <div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
+        <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
+          <h1 className="text-xl font-bold mb-4">Enter Password</h1>
+          <input
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-2 border rounded mb-4"
+            placeholder="Password"
+          />
+          <button
+            onClick={handleLogin}
+            className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700"
+          >
+            Access Site
+          </button>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="bg-gray-50 font-sans text-gray-800">
 
