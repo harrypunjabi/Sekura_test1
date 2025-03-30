@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 
 const Enterprise = () => {
   return (
@@ -15,9 +16,9 @@ const Enterprise = () => {
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <Link to="/#consumer" className="text-gray-600 hover:text-gray-900">Consumer</Link>
-              <Link to="/#features" className="text-gray-600 hover:text-gray-900">Features</Link>
-              <Link to="/#pricing" className="text-gray-600 hover:text-gray-900">Pricing</Link>
+              <HashLink smooth to="/#consumer" className="text-gray-600 hover:text-gray-900">Consumer</HashLink>
+              <HashLink smooth to="/#features" className="text-gray-600 hover:text-gray-900">Features</HashLink>
+              <HashLink smooth to="/#pricing" className="text-gray-600 hover:text-gray-900">Pricing</HashLink>
               <Link to="/enterprise" className="text-gray-600 hover:text-gray-900">Enterprise</Link>
             </nav>
 
