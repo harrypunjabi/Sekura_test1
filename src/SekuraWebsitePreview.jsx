@@ -212,18 +212,27 @@ const SekuraWebsitePreview = () => {
           },
           {
             plan: 'Enterprise',
+            subtext: 'Coming Soon',
             features: [
+              'Everything in Pro, plus:',
+              'Enterprise Data Scanning',
+              'AI-Powered Data Classification',
+              '• PII, PCI, PHI Detection',
+              '• Sensitive Data Auto-tagging',
               'Custom Security Policies',
-              'Team Management',
-              'API Access',
-              'Dedicated Support Manager',
-              'Custom Integration',
+              'Role-based Access Control',
+              'Enterprise SSO Integration',
+              'Audit Logs & Compliance Reports',
+              'Dedicated Success Manager',
+              'Custom API Integration',
               'SLA Guarantee'
             ],
             highlight: false,
-            cta: 'Contact Sales'
+            specialNote: 'Local Government & Non-profits get 50% off',
+            cta: 'Join Waitlist',
+            ctaIcon: '🔔'
           }
-        ].map(({ plan, features, highlight, cta, ctaIcon, price, popular }) => (
+        ].map(({ plan, subtext, features, highlight, specialNote, cta, ctaIcon, price, popular }) => (
           <div key={plan} className={`rounded-lg shadow-xl p-8 text-center relative ${highlight ? 'bg-orange-500 text-white transform scale-105' : 'bg-gray-800 text-white'}`}>
             {popular && (
               <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
@@ -231,6 +240,7 @@ const SekuraWebsitePreview = () => {
               </div>
             )}
             <h3 className="font-bold text-2xl mb-2">{plan}</h3>
+            {subtext && <p className="text-sm mb-4 bg-blue-600 text-white px-3 py-1 rounded-full inline-block">{subtext}</p>}
             {price && typeof price === 'string' ? (
               <p className="text-lg mb-4 opacity-90">{price}</p>
             ) : price && (
@@ -243,11 +253,18 @@ const SekuraWebsitePreview = () => {
             <ul className="mb-8 space-y-3">
               {features.map((feature, idx) => (
                 <li key={idx} className="flex items-center justify-center gap-2">
-                  <span className="text-green-400">✔</span>
-                  {feature}
+                  <span className="text-green-400">{feature.startsWith('•') ? '└' : '✔'}</span>
+                  {feature.startsWith('•') ? feature.substring(2) : feature}
                 </li>
               ))}
             </ul>
+            {specialNote && (
+              <div className="mb-6 text-sm">
+                <p className="text-orange-300 border border-orange-300 rounded-lg p-2">
+                  {specialNote}
+                </p>
+              </div>
+            )}
             <button className={`rounded-full py-3 px-6 font-semibold w-full flex items-center justify-center gap-2 ${
               highlight ? 'bg-white text-orange-500 hover:bg-orange-50' : 
               plan === 'Free' ? 'bg-gray-700 hover:bg-gray-600' : 'bg-white text-gray-800 hover:bg-gray-100'
