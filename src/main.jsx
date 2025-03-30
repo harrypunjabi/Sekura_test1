@@ -1,14 +1,17 @@
 import './index.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import SekuraWebsitePreview from './SekuraWebsitePreview.jsx';
-import SekuraWebsitePreviewOld from './SekuraWebsitePreviewOld.jsx';
-
-// Check if we should show the old version based on environment variable
-const isOldVersion = import.meta.env.VITE_SHOW_OLD_VERSION === 'true';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import App from './SekuraWebsitePreview.jsx';
+import Enterprise from './pages/Enterprise.jsx';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {isOldVersion ? <SekuraWebsitePreviewOld /> : <SekuraWebsitePreview />}
+    <Router>
+      <Routes>
+        <Route path="/" element={<App />} />
+        <Route path="/enterprise" element={<Enterprise />} />
+      </Routes>
+    </Router>
   </React.StrictMode>,
 );
