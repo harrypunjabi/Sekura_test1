@@ -1,42 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
+import businessOwnerImg from './assets/legal-professional.png';
+import householdDefenderImg from './assets/household-defender.png';
+import contentCreatorImg from './assets/digital-content-creator.png';
 
 const SekuraWebsitePreview = () => {
-  const [authenticated, setAuthenticated] = useState(false);
-  const [password, setPassword] = useState('');
-
-  const correctPassword = 'sekura123'; // change this to your desired password
-
-  const handleLogin = () => {
-    if (password === correctPassword) {
-      setAuthenticated(true);
-    } else {
-      alert('Incorrect password');
-    }
-  };
-
-  if (!authenticated) {
-    return (
-      <div className="h-screen w-full flex flex-col items-center justify-center bg-gray-100">
-        <div className="bg-white p-8 rounded-lg shadow-lg text-center w-80">
-          <h1 className="text-xl font-bold mb-4">Enter Password</h1>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            className="w-full px-4 py-2 border rounded mb-4"
-            placeholder="Password"
-          />
-          <button
-            onClick={handleLogin}
-            className="w-full bg-blue-600 text-white font-semibold py-2 rounded hover:bg-blue-700"
-          >
-            Access Site
-          </button>
-        </div>
-      </div>
-    );
-  }
-
   return (
     <div className="bg-gray-50 font-sans text-gray-800">
 
@@ -52,24 +19,64 @@ const SekuraWebsitePreview = () => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-16 text-center bg-gradient-to-b from-white to-gray-100">
-        <h1 className="text-4xl font-bold mb-4">Your Digital World, Secured</h1>
-        <p className="mb-6">AI-Powered Security, Fully Private, Under Your Control</p>
-        <button className="bg-blue-600 hover:bg-blue-700 text-white px-5 py-3 rounded-full font-semibold shadow-lg">
-          ▶ Play Demo (3:08)
-        </button>
-        <ul className="flex justify-center gap-8 mt-8 text-green-600">
-          {['Ransomware Protection', 'Secure Cloud Upload', 'Sensitive Data Lock', 'Prevent Unauthorized Access'].map((feat, idx) => (
-            <li key={idx}>✔️ {feat}</li>
-          ))}
-        </ul>
+      <section className="py-12 px-4 md:px-12 bg-gradient-to-br from-blue-50 via-white to-purple-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+            {/* Left side content */}
+            <div className="flex-1 text-left space-y-6">
+              <h1 className="text-4xl md:text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600">
+                Your Digital World, Secured
+              </h1>
+              <p className="text-lg text-gray-600 max-w-xl">
+                AI-Powered Security, Fully Private, Under Your Control
+              </p>
+              <div className="flex gap-4">
+                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold shadow-lg flex items-center gap-2 transition-all">
+                  <span className="text-lg">▶</span> Watch Demo
+                </button>
+                <button className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-6 py-3 rounded-lg font-semibold transition-all">
+                  Get Started
+                </button>
+              </div>
+            </div>
+            
+            {/* Right side features */}
+            <div className="flex-1">
+              <div className="bg-white rounded-xl p-6 shadow-lg border border-gray-100">
+                <ul className="space-y-4">
+                  {[
+                    'Ransomware Protection',
+                    'Secure Cloud Upload',
+                    'Sensitive Data Lock',
+                    'Prevent Unauthorized Access'
+                  ].map((feat, idx) => (
+                    <li key={idx} className="flex items-center gap-3 text-gray-700">
+                      <span className="flex-shrink-0 w-6 h-6 flex items-center justify-center rounded-full bg-green-100 text-green-600">✓</span>
+                      {feat}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Use Cases Section */}
       <section className="grid grid-cols-3 gap-8 px-12 py-12">
-        {["Small Business Owner", "Household Defender", "Digital Content Creator"].map((title, idx) => (
+        {[
+          { title: "Legal Professional", img: businessOwnerImg },
+          { title: "Household Defender", img: householdDefenderImg },
+          { title: "Digital Content Creator", img: contentCreatorImg }
+        ].map(({ title, img }, idx) => (
           <div key={idx} className="rounded-lg overflow-hidden shadow-lg bg-white">
-            <div className="h-44 bg-gray-200 flex items-center justify-center font-semibold">Image Placeholder</div>
+            <div className="aspect-[4/3] relative">
+              <img 
+                src={img} 
+                alt={title}
+                className="w-full h-full object-contain p-4"
+              />
+            </div>
             <div className="p-4 text-center">
               <h3 className="text-lg font-semibold">For {title}</h3>
             </div>
@@ -102,7 +109,7 @@ const SekuraWebsitePreview = () => {
               <li>✔️ Advanced Encryption</li>
               <li>✔️ Priority Support</li>
             </ul>
-            <button className={`rounded-full py-2 px-5 font-semibold ${plan === 'Pro' ? 'bg-white text-orange-500' : 'bg-gray-700 hover:bg-gray-600'}`}>
+            <button className={`rounded-full py-2 px-5 font-semibold ${plan === 'Enterprise' ? 'bg-white text-orange-500' : plan === 'Pro' ? 'bg-white text-orange-500' : 'bg-gray-700 hover:bg-gray-600'}`}>
               {plan === 'Enterprise' ? 'Contact Sales' : plan === 'Pro' ? 'Get Started' : 'Download'}
             </button>
           </div>
