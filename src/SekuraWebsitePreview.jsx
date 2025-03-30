@@ -24,15 +24,20 @@ const SekuraWebsitePreview = () => {
               <HashLink smooth to="#features" className="text-gray-600 hover:text-gray-900">Features</HashLink>
               <HashLink smooth to="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</HashLink>
               <Link to="/enterprise" className="text-gray-600 hover:text-gray-900">Enterprise</Link>
+              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center gap-2">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M12 16L12 8" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M9 13L12 16L15 13" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M8 18H16" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+                Download
+              </button>
             </nav>
 
             {/* Action Buttons */}
-            <div className="flex items-center space-x-4">
-              <button className="hidden md:block text-gray-600 hover:text-gray-900">
-                Login
-              </button>
-              <button className="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors">
-                Get Started
+            <div className="flex items-center">
+              <button className="text-gray-600 hover:text-gray-900 transition-colors">
+                Sign In
               </button>
             </div>
           </div>
