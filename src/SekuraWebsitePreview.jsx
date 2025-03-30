@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import businessOwnerImg from './assets/legal-professional.png';
 import householdDefenderImg from './assets/household-defender.png';
 import contentCreatorImg from './assets/digital-content-creator.png';
@@ -13,15 +14,15 @@ const SekuraWebsitePreview = () => {
           <div className="flex items-center justify-between">
             {/* Logo */}
             <div className="text-2xl font-bold text-blue-600">
-              Sekura.ai
+              <Link to="/" className="hover:text-blue-700">Sekura.ai</Link>
             </div>
 
             {/* Navigation */}
             <nav className="hidden md:flex items-center space-x-8">
-              <a href="#consumer" className="text-gray-600 hover:text-gray-900">Consumer</a>
-              <a href="#features" className="text-gray-600 hover:text-gray-900">Features</a>
-              <a href="#pricing" className="text-gray-600 hover:text-gray-900">Pricing</a>
-              <a href="#enterprise" className="text-gray-600 hover:text-gray-900">Enterprise</a>
+              <Link to="/#consumer" className="text-gray-600 hover:text-gray-900">Consumer</Link>
+              <Link to="/#features" className="text-gray-600 hover:text-gray-900">Features</Link>
+              <Link to="/#pricing" className="text-gray-600 hover:text-gray-900">Pricing</Link>
+              <Link to="/enterprise" className="text-gray-600 hover:text-gray-900">Enterprise</Link>
             </nav>
 
             {/* Action Buttons */}
