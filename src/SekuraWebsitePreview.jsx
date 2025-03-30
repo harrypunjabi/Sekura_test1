@@ -189,38 +189,52 @@ const SekuraWebsitePreview = () => {
       </section>
 
       {/* Use Cases Section */}
-      <section className="grid grid-cols-3 gap-8 px-12 py-12">
-        {[
-          { 
-            title: "Professional Services", 
-            img: businessOwnerImg,
-            description: "Perfect for small business owners, legal professionals, and service providers. Protect client data, financial records, and confidential documents with military-grade encryption and secure sharing capabilities."
-          },
-          { 
-            title: "Household Defender", 
-            img: householdDefenderImg,
-            description: "Keep your family's personal information, photos, and financial records safe from cyber threats and ransomware."
-          },
-          { 
-            title: "Digital Content Creator", 
-            img: contentCreatorImg,
-            description: "Secure your creative assets and unreleased content with advanced access controls and real-time monitoring."
-          }
-        ].map(({ title, img, description }, idx) => (
-          <div key={idx} className="rounded-lg overflow-hidden shadow-lg bg-white">
-            <div className="aspect-[4/3] relative">
-              <img 
-                src={img} 
-                alt={title}
-                className="w-full h-full object-contain p-4"
-              />
-            </div>
-            <div className="p-4 text-center">
-              <h3 className="text-lg font-semibold mb-2">For {title}</h3>
-              <p className="text-gray-600 text-sm">{description}</p>
-            </div>
+      <section className="px-6 md:px-12 py-16 bg-gray-50">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-bold text-center mb-4">Perfect For Every Need</h2>
+          <p className="text-gray-600 text-center mb-12 max-w-2xl mx-auto">
+            Discover how Sekura.ai adapts to your unique security requirements
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { 
+                title: "Professional Services", 
+                img: businessOwnerImg,
+                description: "Perfect for small business owners, legal professionals, and service providers. Protect client data, financial records, and confidential documents with military-grade encryption and secure sharing capabilities."
+              },
+              { 
+                title: "Household Defender", 
+                img: householdDefenderImg,
+                description: "Keep your family's personal information, photos, and financial records safe from cyber threats and ransomware."
+              },
+              { 
+                title: "Digital Content Creator", 
+                img: contentCreatorImg,
+                description: "Secure your creative assets and unreleased content with advanced access controls and real-time monitoring."
+              }
+            ].map(({ title, img, description }, idx) => (
+              <div key={idx} className="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all">
+                <div className="aspect-[16/9] relative bg-blue-50">
+                  <img 
+                    src={img} 
+                    alt={title}
+                    className="w-full h-full object-contain p-6"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-3">For {title}</h3>
+                  <p className="text-gray-600">{description}</p>
+                  <button className="mt-4 text-blue-600 font-medium hover:text-blue-700 inline-flex items-center gap-1">
+                    Learn more
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
       </section>
 
       {/* Testimonials Section */}
